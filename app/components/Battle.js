@@ -3,7 +3,7 @@ var PropTypes = require('prop-types');
 
 class PlayerInput extends React.Component {
   constructor(pops) {
-    super(props);
+    super();
 
     this.state = {
       username: ''
@@ -41,7 +41,7 @@ class PlayerInput extends React.Component {
           {this.state.label}
         </label>
 
-        <input 
+        <input
           id='username'
           placeholder='github username'
           type='text'
@@ -99,15 +99,15 @@ class Battle extends React.Component {
     return (
       <div>
         <div className='row'>
-          {!playerOneName && 
-            <PlayerInput 
+          {!playerOneName &&
+            <PlayerInput
               id='playerOne'
               label='Player One'
               onSubmit={this.handleSubmit}
             />}
-          
-          {!playerTwoName && 
-            <PlayerInput 
+
+          {!playerTwoName &&
+            <PlayerInput
               id='playerTwo'
               label='Player Two'
               onSubmit={this.handleSubmit}
