@@ -11,8 +11,13 @@ function PlayerPreview (props) {
           src={props.avatar}
           alt={'Avatar for' + props.username} />
         <h2 className='username'>@{props.username}</h2>
-      </div>
 
+        <button
+          className='reset'
+          onClick={props.onRest.bind(this, props.id)}>
+            Reset
+        </button>
+      </div>
     </div>
   );
 }
@@ -20,7 +25,8 @@ function PlayerPreview (props) {
 PlayerPreview.propTypes = {
   avatar: PropTypes.string.isRequired,
   username: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired
+  id: PropTypes.string.isRequired,
+  onRest: PropTypes.func.isRequired
 }
 
 class PlayerInput extends React.Component {
@@ -148,13 +154,7 @@ class Battle extends React.Component {
               avatar={playerOneImage}
               username={playerOneName}
               onRest={this.handleReset}
-              id='playerOne'>
-              <button
-                  className='reset'
-                  onClick={this.handleReset.bind(this, 'playerOne')}>
-                    Reset
-                </button>
-            </PlayerPreview>
+              id='playerOne' />
           }
 
           {!playerTwoName &&
@@ -169,14 +169,9 @@ class Battle extends React.Component {
               avatar={playerTwoImage}
               username={playerTwoName}
               onRest={this.handleReset}
-              id='playerTwo'>
-                <button
-                  className='reset'
-                  onClick={this.handleReset.bind(this, 'playerTwo')}>
-                    Reset
-                </button>
-            </PlayerPreview>
+              id='playerTwo' />
           }
+
         </div>
 
           {playerOneImage && playerTwoImage &&
