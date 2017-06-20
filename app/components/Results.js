@@ -1,5 +1,6 @@
 var React = require('react');
-// var PropTypes = require('prop-types');
+var Loading = require('./Loading.js');
+
 
 class Results extends React.Component {
   render() {
