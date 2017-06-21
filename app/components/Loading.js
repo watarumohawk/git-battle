@@ -20,6 +20,7 @@ class Loading extends React.Component {
 
   componentDidMount() {
     var stopper = this.props.text + '...';
+
     this.interval = window.setInterval(function () {
 
       if (this.state.text === stopper) {
@@ -40,7 +41,6 @@ class Loading extends React.Component {
   }
 
   componentWillUnmount() {
-    console.log('CLEAR INTERVAL!');
     window.clearInterval(this.interval);
   }
 
@@ -52,7 +52,6 @@ class Loading extends React.Component {
       );
   }
 }
-
 
 Loading.propTypes = {
   text: PropTypes.string.isRequired,
