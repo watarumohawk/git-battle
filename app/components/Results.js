@@ -26,7 +26,7 @@ function Profile (props) {
 }
 
 Profile.propTypes = {
-  info: PropTypes.object.isRequired
+  info: PropTypes.object.isRequired,
 }
 
 function Player (props) {
@@ -63,12 +63,11 @@ class Results extends React.Component {
       players.playerOneName,
       players.playerTwoName
     ]).then(function (players) {
-
       if (players === null) {
         return this.setState(function () {
           return {
             error: 'Looks like there was an error. Check that both users exist on Github.',
-            loading: false,
+            loading: false
           }
         });
       }
@@ -114,8 +113,7 @@ class Results extends React.Component {
           label='Loser'
           score={loser.score}
           profile={loser.profile} />
-
-       </div>
+      </div>
     );
   }
 }
