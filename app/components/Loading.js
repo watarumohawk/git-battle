@@ -22,7 +22,6 @@ class Loading extends React.Component {
     var stopper = this.props.text + '...';
 
     this.interval = window.setInterval(function () {
-
       if (this.state.text === stopper) {
         this.setState(function () {
           return {
@@ -32,12 +31,12 @@ class Loading extends React.Component {
       } else {
         this.setState(function (prevState) {
           return {
-            text: prevState + '.'
+            text: prevState.text + '.'
           }
         });
       }
-
     }.bind(this), this.props.speed);
+
   }
 
   componentWillUnmount() {
@@ -45,11 +44,11 @@ class Loading extends React.Component {
   }
 
   render() {
-      return (
-        <p style={style.content}>
-          {this.state.text}
-        </p>
-      );
+    return (
+      <p style={style.content}>
+        {this.state.text}
+      </p>
+    );
   }
 }
 
